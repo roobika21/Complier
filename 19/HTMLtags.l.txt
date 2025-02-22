@@ -1,0 +1,21 @@
+%{
+#include <stdio.h>
+#include <stdlib.h>
+%}
+
+%%
+
+\<[^>]+\>    { printf("%s\n", yytext); }
+
+.            ;
+
+%%
+
+int main() {
+    yylex();
+    return 0;
+}
+
+int yywrap() {
+    return 1;
+}
